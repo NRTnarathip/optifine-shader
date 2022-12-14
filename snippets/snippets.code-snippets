@@ -1,0 +1,128 @@
+{
+    "vaPosition": {
+        "prefix": "in vec3 vaPosition",
+        "body": [
+            "in vec3 vaPosition;",
+        ],
+        "description": "vaPosition1.17+, for terrain it is relative to the chunk origin, see 'chunkOffset'"
+    },
+    "vaColor": {
+        "prefix": "in vec4 vaColor",
+        "body": [
+            "in vec4 vaColor;",
+        ],
+        "description": "1.17+"
+    },
+    "vaUV0": {
+        "prefix": "in vec2 vaUV0",
+        "body": [
+            "in vec2 vaUV0;",
+        ],
+        "description": "1.17+"
+    },
+    "vaUV1": {
+        "prefix": "in ivec2 vaUV1",
+        "body": [
+            "in ivec2 vaUV1;",
+        ],
+        "description": "1.17+"
+    },
+    "vaUV2": {
+        "prefix": "in ivec2 vaUV2",
+        "body": [
+            "in ivec2 vaUV2;",
+        ],
+        "description": "1.17+"
+    },
+    "vaNormal": {
+        "prefix": "in vec3 vaNormal",
+        "body": [
+            "in vec3 vaNormal;",
+        ],
+        "description": "1.17+"
+    },
+    "mc_Entity xy = blockId, renderType": {
+        "prefix": "in vec3 mc_entity",
+        "body": [
+            "in vec3 mc_Entity;",
+        ],
+        "description": "'blockId' is used only for blocks specified in 'block.properties'"
+    },
+    "at_midBlock offset to block center in 1/64m units": {
+        "prefix": "in vec3 at_midBlock",
+        "body": [
+            "in vec3 at_midBlock;",
+        ],
+        "description": "Only for blocks"
+    },
+    "modelViewMatrix model view matrix": {
+        "prefix": "uniform mat4 modelViewMatrix",
+        "body": [
+            "uniform mat4 modelViewMatrix;",
+        ],
+        "description": "model view matrix"
+    },
+    "modelViewMatrixInverse: inverse model view matrix": {
+        "prefix": "uniform mat4 modelViewMatrixInverse",
+        "body": [
+            "uniform mat4 modelViewMatrixInverse;",
+        ],
+        "description": "inverse model view matrix"
+    },
+    "projectionMatrix: projection matrix": {
+        "prefix": "uniform mat4 projectionMatrix",
+        "body": [
+            "uniform mat4 projectionMatrix;",
+        ],
+        "description": "projection matrix"
+    },
+    "projectionMatrixInverse: inverse projection matrix": {
+        "prefix": "uniform mat4 projectionMatrixInverse",
+        "body": [
+            "uniform mat4 projectionMatrixInverse;",
+        ],
+        "description": "inverse projection matrix"
+    },
+    "textureMatrix: texture matrix, default is identity": {
+        "prefix": "uniform mat4 textureMatrix",
+        "body": [
+            "uniform mat4 textureMatrix = mat4(1.0);",
+        ],
+        "description": "texture matrix, default is identity"
+    },
+    "normalMatrix: normal matrix": {
+        "prefix": "uniform mat3 normalMatrix",
+        "body": [
+            "uniform mat3 normalMatrix;",
+        ],
+        "description": "normal matrix"
+    },
+    "chunkOffset: terrain chunk origin, used with attribute 'vaPosition'": {
+        "prefix": "uniform vec3 chunkOffset",
+        "body": [
+            "uniform vec3 chunkOffset;",
+        ],
+        "description": "terrain chunk origin, used with attribute 'vaPosition'"
+    },
+    "alphaTestRef: alpha test reference value, the check is 'if (color.a < alphaTestRef) discard;'": {
+        "prefix": "uniform float alphaTestRef",
+        "body": [
+            "uniform float alphaTestRef;",
+        ],
+        "description": "alpha test reference value, the check is 'if (color.a < alphaTestRef) discard;'"
+    },
+    "darknessFactor: strength of the darkness effect (0.0-1.0)": {
+        "prefix": "uniform float darknessFactor",
+        "body": [
+            "uniform float darknessFactor;",
+        ],
+        "description": "strength of the darkness effect (0.0-1.0)"
+    },
+    "darknessLightFactor: lightmap variations caused by the darkness effect (0.0-1.0)": {
+        "prefix": "uniform float darknessLightFactor",
+        "body": [
+            "uniform float darknessLightFactor;",
+        ],
+        "description": "lightmap variations caused by the darkness effect (0.0-1.0)"
+    },
+}
