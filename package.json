@@ -6,12 +6,12 @@
   "author": {
     "name": "NRTnarathip"
   },
-  "icon": "./img/optifine.png",
+  "icon": "img/optifine.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/NRTnarathip/optifine-shader.git"
   },
-  "version": "0.0.9",
+  "version": "0.1.1",
   "engines": {
     "vscode": "^1.74.0"
   },
