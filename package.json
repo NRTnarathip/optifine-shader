@@ -2,12 +2,16 @@
   "name": "optifine-shader",
   "displayName": "Optifine Shader",
   "description": "Code Snippet For Optifine Shader Minecraft",
+  "publisher": "NRTnarathip",
+  "author": {
+    "name": "NRTnarathip"
+  },
   "icon": "./img/optifine.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Microsoft/vscode-cpptools.git"
+    "url": "https://github.com/NRTnarathip/optifine-shader.git"
   },
-  "version": "0.0.1",
+  "version": "0.0.9",
   "engines": {
     "vscode": "^1.74.0"
   },
