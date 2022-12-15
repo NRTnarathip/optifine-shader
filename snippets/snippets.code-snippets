@@ -1,128 +1,590 @@
 {
-    "vaPosition": {
-        "prefix": "in vec3 vaPosition",
-        "body": [
-            "in vec3 vaPosition;",
-        ],
-        "description": "vaPosition1.17+, for terrain it is relative to the chunk origin, see 'chunkOffset'"
-    },
-    "vaColor": {
-        "prefix": "in vec4 vaColor",
-        "body": [
-            "in vec4 vaColor;",
-        ],
-        "description": "1.17+"
-    },
-    "vaUV0": {
-        "prefix": "in vec2 vaUV0",
-        "body": [
-            "in vec2 vaUV0;",
-        ],
-        "description": "1.17+"
-    },
-    "vaUV1": {
-        "prefix": "in ivec2 vaUV1",
-        "body": [
-            "in ivec2 vaUV1;",
-        ],
-        "description": "1.17+"
-    },
-    "vaUV2": {
-        "prefix": "in ivec2 vaUV2",
-        "body": [
-            "in ivec2 vaUV2;",
-        ],
-        "description": "1.17+"
-    },
-    "vaNormal": {
-        "prefix": "in vec3 vaNormal",
-        "body": [
-            "in vec3 vaNormal;",
-        ],
-        "description": "1.17+"
-    },
-    "mc_Entity xy = blockId, renderType": {
-        "prefix": "in vec3 mc_entity",
-        "body": [
-            "in vec3 mc_Entity;",
-        ],
-        "description": "'blockId' is used only for blocks specified in 'block.properties'"
-    },
-    "at_midBlock offset to block center in 1/64m units": {
-        "prefix": "in vec3 at_midBlock",
-        "body": [
-            "in vec3 at_midBlock;",
-        ],
-        "description": "Only for blocks"
-    },
-    "modelViewMatrix model view matrix": {
-        "prefix": "uniform mat4 modelViewMatrix",
-        "body": [
-            "uniform mat4 modelViewMatrix;",
-        ],
-        "description": "model view matrix"
-    },
-    "modelViewMatrixInverse: inverse model view matrix": {
-        "prefix": "uniform mat4 modelViewMatrixInverse",
-        "body": [
-            "uniform mat4 modelViewMatrixInverse;",
-        ],
-        "description": "inverse model view matrix"
-    },
-    "projectionMatrix: projection matrix": {
-        "prefix": "uniform mat4 projectionMatrix",
-        "body": [
-            "uniform mat4 projectionMatrix;",
-        ],
-        "description": "projection matrix"
-    },
-    "projectionMatrixInverse: inverse projection matrix": {
-        "prefix": "uniform mat4 projectionMatrixInverse",
-        "body": [
-            "uniform mat4 projectionMatrixInverse;",
-        ],
-        "description": "inverse projection matrix"
-    },
-    "textureMatrix: texture matrix, default is identity": {
-        "prefix": "uniform mat4 textureMatrix",
-        "body": [
-            "uniform mat4 textureMatrix = mat4(1.0);",
-        ],
-        "description": "texture matrix, default is identity"
-    },
-    "normalMatrix: normal matrix": {
-        "prefix": "uniform mat3 normalMatrix",
-        "body": [
-            "uniform mat3 normalMatrix;",
-        ],
-        "description": "normal matrix"
-    },
-    "chunkOffset: terrain chunk origin, used with attribute 'vaPosition'": {
-        "prefix": "uniform vec3 chunkOffset",
-        "body": [
-            "uniform vec3 chunkOffset;",
-        ],
-        "description": "terrain chunk origin, used with attribute 'vaPosition'"
-    },
-    "alphaTestRef: alpha test reference value, the check is 'if (color.a < alphaTestRef) discard;'": {
-        "prefix": "uniform float alphaTestRef",
-        "body": [
-            "uniform float alphaTestRef;",
-        ],
-        "description": "alpha test reference value, the check is 'if (color.a < alphaTestRef) discard;'"
-    },
-    "darknessFactor: strength of the darkness effect (0.0-1.0)": {
-        "prefix": "uniform float darknessFactor",
-        "body": [
-            "uniform float darknessFactor;",
-        ],
-        "description": "strength of the darkness effect (0.0-1.0)"
-    },
-    "darknessLightFactor: lightmap variations caused by the darkness effect (0.0-1.0)": {
-        "prefix": "uniform float darknessLightFactor",
-        "body": [
-            "uniform float darknessLightFactor;",
-        ],
-        "description": "lightmap variations caused by the darkness effect (0.0-1.0)"
-    },
+"vaPosition" : {
+    "prefix" : "in vec3 vaPosition",
+    "body" : [
+        "in vec3 vaPosition;",
+    ],
+    "description" : "position (x, y, z)                          1.17+, for terrain it is relative to the chunk origin, see 'chunkOffset'"
+},
+"vaColor" : {
+    "prefix" : "in vec4 vaColor",
+    "body" : [
+        "in vec4 vaColor;",
+    ],
+    "description" : "color (r, g, b, a)                          1.17+"
+},
+"vaUV0" : {
+    "prefix" : "in vec2 vaUV0",
+    "body" : [
+        "in vec2 vaUV0;",
+    ],
+    "description" : "texture (u, v)                              1.17+"
+},
+"vaUV1" : {
+    "prefix" : "in ivec2 vaUV1",
+    "body" : [
+        "in ivec2 vaUV1;",
+    ],
+    "description" : "overlay (u, v)                              1.17+"
+},
+"vaUV2" : {
+    "prefix" : "in ivec2 vaUV2",
+    "body" : [
+        "in ivec2 vaUV2;",
+    ],
+    "description" : "lightmap (u, v)                             1.17+"
+},
+"vaNormal" : {
+    "prefix" : "in vec3 vaNormal",
+    "body" : [
+        "in vec3 vaNormal;",
+    ],
+    "description" : "normal (x, y, z)                            1.17+"
+},
+"mc_Entity" : {
+    "prefix" : "in vec3 mc_Entity",
+    "body" : [
+        "in vec3 mc_Entity;",
+    ],
+    "description" : "xy = blockId, renderType                    'blockId' is used only for blocks specified in 'block.properties'      "
+},
+"mc_midTexCoord" : {
+    "prefix" : "in vec2 mc_midTexCoord",
+    "body" : [
+        "in vec2 mc_midTexCoord;",
+    ],
+    "description" : "st = midTexU, midTexV                       Sprite middle UV coordinates                "
+},
+"at_tangent" : {
+    "prefix" : "in vec4 at_tangent",
+    "body" : [
+        "in vec4 at_tangent;",
+    ],
+    "description" : "xyz = tangent vector, w = handedness"
+},
+"at_velocity" : {
+    "prefix" : "in vec3 at_velocity",
+    "body" : [
+        "in vec3 at_velocity;",
+    ],
+    "description" : "vertex offset to previous frame             In view space, only for entities and block entities"
+},
+"at_midBlock" : {
+    "prefix" : "in vec3 at_midBlock",
+    "body" : [
+        "in vec3 at_midBlock;",
+    ],
+    "description" : "offset to block center in 1/64m units       Only for blocks"
+},
+"heldItemId" : {
+    "prefix" : "uniform int heldItemId",
+    "body" : [
+        "uniform int heldItemId;",
+    ],
+    "description" : "held item ID (main hand), used only for items defined in 'item.properties'"
+},
+"heldBlockLightValue" : {
+    "prefix" : "uniform int heldBlockLightValue",
+    "body" : [
+        "uniform int heldBlockLightValue;",
+    ],
+    "description" : "held item light value (main hand)"
+},
+"heldItemId2" : {
+    "prefix" : "uniform int heldItemId2",
+    "body" : [
+        "uniform int heldItemId2;",
+    ],
+    "description" : "held item ID (off hand), used only for items defined in 'item.properties'"
+},
+"heldBlockLightValue2" : {
+    "prefix" : "uniform int heldBlockLightValue2",
+    "body" : [
+        "uniform int heldBlockLightValue2;",
+    ],
+    "description" : "held item light value (off hand)"
+},
+"fogMode" : {
+    "prefix" : "uniform int fogMode",
+    "body" : [
+        "uniform int fogMode;",
+    ],
+    "description" : "GL_LINEAR, GL_EXP or GL_EXP2"
+},
+"fogStart" : {
+    "prefix" : "uniform float fogStart",
+    "body" : [
+        "uniform float fogStart;",
+    ],
+    "description" : "fog start distance (m)"
+},
+"fogEnd" : {
+    "prefix" : "uniform float fogEnd",
+    "body" : [
+        "uniform float fogEnd;",
+    ],
+    "description" : "fog end distance (m)"
+},
+"fogShape" : {
+    "prefix" : "uniform int fogShape",
+    "body" : [
+        "uniform int fogShape;",
+    ],
+    "description" : "0 = sphere, 1 = cylinder"
+},
+"fogDensity" : {
+    "prefix" : "uniform float fogDensity",
+    "body" : [
+        "uniform float fogDensity;",
+    ],
+    "description" : "0.0-1.0"
+},
+"fogColor" : {
+    "prefix" : "uniform vec3 fogColor",
+    "body" : [
+        "uniform vec3 fogColor;",
+    ],
+    "description" : "r, g, b"
+},
+"skyColor" : {
+    "prefix" : "uniform vec3 skyColor",
+    "body" : [
+        "uniform vec3 skyColor;",
+    ],
+    "description" : "r, g, b"
+},
+"worldTime" : {
+    "prefix" : "uniform int worldTime",
+    "body" : [
+        "uniform int worldTime;",
+    ],
+    "description" : "<ticks> = worldTicks % 24000"
+},
+"worldDay" : {
+    "prefix" : "uniform int worldDay",
+    "body" : [
+        "uniform int worldDay;",
+    ],
+    "description" : "<days> = worldTicks / 24000"
+},
+"moonPhase" : {
+    "prefix" : "uniform int moonPhase",
+    "body" : [
+        "uniform int moonPhase;",
+    ],
+    "description" : "0-7"
+},
+"frameCounter" : {
+    "prefix" : "uniform int frameCounter",
+    "body" : [
+        "uniform int frameCounter;",
+    ],
+    "description" : "Frame index (0 to 720719, then resets to 0)"
+},
+"frameTime" : {
+    "prefix" : "uniform float frameTime",
+    "body" : [
+        "uniform float frameTime;",
+    ],
+    "description" : "last frame time, seconds"
+},
+"frameTimeCounter" : {
+    "prefix" : "uniform float frameTimeCounter",
+    "body" : [
+        "uniform float frameTimeCounter;",
+    ],
+    "description" : "run time, seconds (resets to 0 after 3600s)"
+},
+"sunAngle" : {
+    "prefix" : "uniform float sunAngle",
+    "body" : [
+        "uniform float sunAngle;",
+    ],
+    "description" : "0.0-1.0"
+},
+"shadowAngle" : {
+    "prefix" : "uniform float shadowAngle",
+    "body" : [
+        "uniform float shadowAngle;",
+    ],
+    "description" : "0.0-1.0"
+},
+"rainStrength" : {
+    "prefix" : "uniform float rainStrength",
+    "body" : [
+        "uniform float rainStrength;",
+    ],
+    "description" : "0.0-1.0"
+},
+"aspectRatio" : {
+    "prefix" : "uniform float aspectRatio",
+    "body" : [
+        "uniform float aspectRatio;",
+    ],
+    "description" : "viewWidth / viewHeight"
+},
+"viewWidth" : {
+    "prefix" : "uniform float viewWidth",
+    "body" : [
+        "uniform float viewWidth;",
+    ],
+    "description" : "viewWidth"
+},
+"viewHeight" : {
+    "prefix" : "uniform float viewHeight",
+    "body" : [
+        "uniform float viewHeight;",
+    ],
+    "description" : "viewHeight"
+},
+"near" : {
+    "prefix" : "uniform float near",
+    "body" : [
+        "uniform float near;",
+    ],
+    "description" : "near viewing plane distance"
+},
+"far" : {
+    "prefix" : "uniform float far",
+    "body" : [
+        "uniform float far;",
+    ],
+    "description" : "far viewing plane distance"
+},
+"sunPosition" : {
+    "prefix" : "uniform vec3 sunPosition",
+    "body" : [
+        "uniform vec3 sunPosition;",
+    ],
+    "description" : "sun position in eye space"
+},
+"moonPosition" : {
+    "prefix" : "uniform vec3 moonPosition",
+    "body" : [
+        "uniform vec3 moonPosition;",
+    ],
+    "description" : "moon position in eye space"
+},
+"shadowLightPosition" : {
+    "prefix" : "uniform vec3 shadowLightPosition",
+    "body" : [
+        "uniform vec3 shadowLightPosition;",
+    ],
+    "description" : "shadow light (sun or moon) position in eye space"
+},
+"upPosition" : {
+    "prefix" : "uniform vec3 upPosition",
+    "body" : [
+        "uniform vec3 upPosition;",
+    ],
+    "description" : "direction up"
+},
+"cameraPosition" : {
+    "prefix" : "uniform vec3 cameraPosition",
+    "body" : [
+        "uniform vec3 cameraPosition;",
+    ],
+    "description" : "camera position in world space"
+},
+"previousCameraPosition" : {
+    "prefix" : "uniform vec3 previousCameraPosition",
+    "body" : [
+        "uniform vec3 previousCameraPosition;",
+    ],
+    "description" : "last frame cameraPosition"
+},
+"gbufferModelView" : {
+    "prefix" : "uniform mat4 gbufferModelView",
+    "body" : [
+        "uniform mat4 gbufferModelView;",
+    ],
+    "description" : "modelview matrix after setting up the camera transformations"
+},
+"gbufferModelViewInverse" : {
+    "prefix" : "uniform mat4 gbufferModelViewInverse",
+    "body" : [
+        "uniform mat4 gbufferModelViewInverse;",
+    ],
+    "description" : "inverse gbufferModelView"
+},
+"gbufferPreviousModelView" : {
+    "prefix" : "uniform mat4 gbufferPreviousModelView",
+    "body" : [
+        "uniform mat4 gbufferPreviousModelView;",
+    ],
+    "description" : "last frame gbufferModelView"
+},
+"gbufferProjection" : {
+    "prefix" : "uniform mat4 gbufferProjection",
+    "body" : [
+        "uniform mat4 gbufferProjection;",
+    ],
+    "description" : "projection matrix when the gbuffers were generated"
+},
+"gbufferProjectionInverse" : {
+    "prefix" : "uniform mat4 gbufferProjectionInverse",
+    "body" : [
+        "uniform mat4 gbufferProjectionInverse;",
+    ],
+    "description" : "inverse gbufferProjection"
+},
+"gbufferPreviousProjection" : {
+    "prefix" : "uniform mat4 gbufferPreviousProjection",
+    "body" : [
+        "uniform mat4 gbufferPreviousProjection;",
+    ],
+    "description" : "last frame gbufferProjection"
+},
+"shadowProjection" : {
+    "prefix" : "uniform mat4 shadowProjection",
+    "body" : [
+        "uniform mat4 shadowProjection;",
+    ],
+    "description" : "projection matrix when the shadow map was generated"
+},
+"shadowProjectionInverse" : {
+    "prefix" : "uniform mat4 shadowProjectionInverse",
+    "body" : [
+        "uniform mat4 shadowProjectionInverse;",
+    ],
+    "description" : "inverse shadowProjection"
+},
+"shadowModelView" : {
+    "prefix" : "uniform mat4 shadowModelView",
+    "body" : [
+        "uniform mat4 shadowModelView;",
+    ],
+    "description" : "modelview matrix when the shadow map was generated"
+},
+"shadowModelViewInverse" : {
+    "prefix" : "uniform mat4 shadowModelViewInverse",
+    "body" : [
+        "uniform mat4 shadowModelViewInverse;",
+    ],
+    "description" : "inverse shadowModelView"
+},
+"wetness" : {
+    "prefix" : "uniform float wetness",
+    "body" : [
+        "uniform float wetness;",
+    ],
+    "description" : "rainStrength smoothed with wetnessHalfLife or drynessHalfLife"
+},
+"eyeAltitude" : {
+    "prefix" : "uniform float eyeAltitude",
+    "body" : [
+        "uniform float eyeAltitude;",
+    ],
+    "description" : "view entity Y position"
+},
+"eyeBrightness" : {
+    "prefix" : "uniform ivec2 eyeBrightness",
+    "body" : [
+        "uniform ivec2 eyeBrightness;",
+    ],
+    "description" : "x = block brightness, y = sky brightness, light 0-15 = brightness 0-240 "
+},
+"eyeBrightnessSmooth" : {
+    "prefix" : "uniform ivec2 eyeBrightnessSmooth",
+    "body" : [
+        "uniform ivec2 eyeBrightnessSmooth;",
+    ],
+    "description" : "eyeBrightness smoothed with eyeBrightnessHalflife"
+},
+"terrainTextureSize" : {
+    "prefix" : "uniform ivec2 terrainTextureSize",
+    "body" : [
+        "uniform ivec2 terrainTextureSize;",
+    ],
+    "description" : "not used"
+},
+"terrainIconSize" : {
+    "prefix" : "uniform int terrainIconSize",
+    "body" : [
+        "uniform int terrainIconSize;",
+    ],
+    "description" : "not used"
+},
+"isEyeInWater" : {
+    "prefix" : "uniform int isEyeInWater",
+    "body" : [
+        "uniform int isEyeInWater;",
+    ],
+    "description" : "1 = camera is in water, 2 = camera is in lava, 3 = camera is in powder snow"
+},
+"nightVision" : {
+    "prefix" : "uniform float nightVision",
+    "body" : [
+        "uniform float nightVision;",
+    ],
+    "description" : "night vision (0.0-1.0)"
+},
+"blindness" : {
+    "prefix" : "uniform float blindness",
+    "body" : [
+        "uniform float blindness;",
+    ],
+    "description" : "blindness (0.0-1.0)"
+},
+"screenBrightness" : {
+    "prefix" : "uniform float screenBrightness",
+    "body" : [
+        "uniform float screenBrightness;",
+    ],
+    "description" : "screen brightness (0.0-1.0)"
+},
+"hideGUI" : {
+    "prefix" : "uniform int hideGUI",
+    "body" : [
+        "uniform int hideGUI;",
+    ],
+    "description" : "GUI is hidden"
+},
+"centerDepthSmooth" : {
+    "prefix" : "uniform float centerDepthSmooth",
+    "body" : [
+        "uniform float centerDepthSmooth;",
+    ],
+    "description" : "centerDepth smoothed with centerDepthSmoothHalflife"
+},
+"atlasSize" : {
+    "prefix" : "uniform ivec2 atlasSize",
+    "body" : [
+        "uniform ivec2 atlasSize;",
+    ],
+    "description" : "texture atlas size (only set when the atlas texture is bound)"
+},
+"spriteBounds" : {
+    "prefix" : "uniform vec4 spriteBounds",
+    "body" : [
+        "uniform vec4 spriteBounds;",
+    ],
+    "description" : "sprite bounds in the texture atlas (u0, v0, u1, v1), set when MC_ANISOTROPIC_FILTERING is enabled"
+},
+"entityColor" : {
+    "prefix" : "uniform vec4 entityColor",
+    "body" : [
+        "uniform vec4 entityColor;",
+    ],
+    "description" : "entity color multiplier (entity hurt, creeper flashing when exploding)"
+},
+"entityId" : {
+    "prefix" : "uniform int entityId",
+    "body" : [
+        "uniform int entityId;",
+    ],
+    "description" : "entity ID"
+},
+"blockEntityId" : {
+    "prefix" : "uniform int blockEntityId",
+    "body" : [
+        "uniform int blockEntityId;",
+    ],
+    "description" : "block entity ID (block ID for the tile entity, only for blocks specified in 'block.properties')"
+},
+"blendFunc" : {
+    "prefix" : "uniform ivec4 blendFunc",
+    "body" : [
+        "uniform ivec4 blendFunc;",
+    ],
+    "description" : "blend function (srcRGB, dstRGB, srcAlpha, dstAlpha)"
+},
+"instanceId" : {
+    "prefix" : "uniform int instanceId",
+    "body" : [
+        "uniform int instanceId;",
+    ],
+    "description" : "instance ID when instancing is enabled (countInstances > 1), 0 = original, 1-N = copies"
+},
+"playerMood" : {
+    "prefix" : "uniform float playerMood",
+    "body" : [
+        "uniform float playerMood;",
+    ],
+    "description" : "player mood (0.0-1.0), increases the longer a player stays underground"
+},
+"renderStage" : {
+    "prefix" : "uniform int renderStage",
+    "body" : [
+        "uniform int renderStage;",
+    ],
+    "description" : "render stage, see 'Standard Macros', 'J. Render stages'"
+},
+"bossBattle" : {
+    "prefix" : "uniform int bossBattle",
+    "body" : [
+        "uniform int bossBattle;",
+    ],
+    "description" : "1 = custom, 2 = ender dragon, 3 = wither, 4 = raid"
+},
+"modelViewMatrix" : {
+    "prefix" : "uniform mat4 modelViewMatrix",
+    "body" : [
+        "uniform mat4 modelViewMatrix;",
+    ],
+    "description" : "model view matrix"
+},
+"modelViewMatrixInverse" : {
+    "prefix" : "uniform mat4 modelViewMatrixInverse",
+    "body" : [
+        "uniform mat4 modelViewMatrixInverse;",
+    ],
+    "description" : "inverse model view matrix"
+},
+"projectionMatrix" : {
+    "prefix" : "uniform mat4 projectionMatrix",
+    "body" : [
+        "uniform mat4 projectionMatrix;",
+    ],
+    "description" : "projection matrix"
+},
+"projectionMatrixInverse" : {
+    "prefix" : "uniform mat4 projectionMatrixInverse",
+    "body" : [
+        "uniform mat4 projectionMatrixInverse;",
+    ],
+    "description" : "inverse projection matrix"
+},
+"textureMatrix" : {
+    "prefix" : "uniform mat4 textureMatrix = mat4(1.0)",
+    "body" : [
+        "uniform mat4 textureMatrix = mat4(1.0);",
+    ],
+    "description" : "texture matrix, default is identity"
+},
+"normalMatrix" : {
+    "prefix" : "uniform mat3 normalMatrix",
+    "body" : [
+        "uniform mat3 normalMatrix;",
+    ],
+    "description" : "normal matrix"
+},
+"chunkOffset" : {
+    "prefix" : "uniform vec3 chunkOffset",
+    "body" : [
+        "uniform vec3 chunkOffset;",
+    ],
+    "description" : "terrain chunk origin, used with attribute 'vaPosition'"
+},
+"alphaTestRef" : {
+    "prefix" : "uniform float alphaTestRef",
+    "body" : [
+        "uniform float alphaTestRef;",
+    ],
+    "description" : "alpha test reference value, the check is 'if (color.a < alphaTestRef) discard;'"
+},
+"darknessFactor" : {
+    "prefix" : "uniform float darknessFactor",
+    "body" : [
+        "uniform float darknessFactor;",
+    ],
+    "description" : "strength of the darkness effect (0.0-1.0)"
+},
+"darknessLightFactor" : {
+    "prefix" : "uniform float darknessLightFactor",
+    "body" : [
+        "uniform float darknessLightFactor;",
+    ],
+    "description" : "lightmap variations caused by the darkness effect (0.0-1.0) "
+}
 }
