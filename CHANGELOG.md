@@ -2,8 +2,5 @@
 
 All notable changes to the "optifine-shader" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+## [0.5.0]
+- Ready to use. is have a simple variable, uniform optifine shader
